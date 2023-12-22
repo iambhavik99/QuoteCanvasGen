@@ -1,0 +1,100 @@
+<div class="container mx-auto p-4">
+    
+    <div class="grid grid-cols-12 gap-4" *ngIf="currentState == STATES.SUCCESS">
+        <div class="col-span-8">
+            <div class="flex items-center justify-center">
+                <!-- start quote image -->
+                <img
+                    id="quote-image" 
+                    alt="image with quote"
+                    class="rounded-md drop-shadow-xl" 
+                    [src]="imageUrl" />
+                <!-- end quote image -->
+            </div>
+        </div>
+        <div class="col-span-4 font-sans p-2">
+
+            <!-- start quote -->
+            <div class="mb-5">
+                <div
+                    id="quote" 
+                    class="italic font-bold text-gray-700 text-2xl pb-2">
+                    " {{quoteImageResponse.quote}} "
+                </div>
+                <div
+                    id="quote-author" 
+                    class="italic text-gray-600 text-base">
+                    <div class="flex justify-end">
+                        - <span class="underline underline-offset-4 decoration-emerald-600">
+                            {{quoteImageResponse.authorName}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- end quote -->
+
+
+            <!--start author details  -->
+            <div class="mb-10">
+
+                <div class="font-bold text-emerald-600 pb-3 text-xl">{{quoteImageResponse.authorName}}</div>
+                <div class="font-medium text-gray-600 pb-2 text-base">{{quoteImageResponse.authorDescription}}</div>
+                <div class="font-normal text-gray-500 pb-2 text-base">{{quoteImageResponse.authorBio}}</div>
+                
+                <div class="font-normal text-gray-500 text-base flex">
+                    <span class="underline mr-1 font-thin underline-offset-2">Want to learn more about author?</span>
+                    <a class="text-sky-700 hover:text-sky-500 underline underline-offset-2 hover:decoration-sky-600"
+                        [href]="quoteImageResponse.authorLink"
+                        target="_blank">
+                            Wiki
+                    </a>
+                </div>
+
+            </div>
+            <!--end author details  -->
+
+            <div class="my-5">
+                <button 
+                    id="generate"
+                    (click)="fetchQuoteImageWithMetaData()"
+                    class="bg-emerald-700 text-white rounded-md drop-shadow-md hover:bg-emerald-600 hover:scale-105 px-4 py-2">
+                    
+                    <div class="flex items-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                                <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd" />
+                            </svg>  
+                        </div>
+                        <div class="ml-1">
+                            Random quote
+                        </div>
+                    </div>
+
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div *ngIf="currentState == STATES.LOADING" class="flex justify-center my-10">
+        <div class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm text-teal-600 hover:text-teal-500 transition ease-in-out duration-150">
+            <svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span class="text-xl">Processing...</span>
+        </div>
+    </div>
+
+
+    <div *ngIf="currentState == STATES.FAILED" class="flex justify-center my-10">
+        <div class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm text-orange-600 hover:text-orange-500 transition ease-in-out duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="-ml-1 mr-3 w-6 h-6 text-orange-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+              </svg>
+            <span class="text-xl">Failed</span>
+        </div>        
+    </div>
+
+</div>

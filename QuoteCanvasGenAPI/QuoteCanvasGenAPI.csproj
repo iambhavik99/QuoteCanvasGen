@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationId>543680</ApplicationId>
+      <UserSecretsId>ebe6630d-707c-4826-b9b8-047bf59f7cb7</UserSecretsId>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="RestSharp" Version="110.2.0" />
+        <PackageReference Include="SixLabors.Fonts" Version="2.0.1" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.1.1" />
+        <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+</Project>
