@@ -17,4 +17,10 @@ The metadata for each quote includes the author's name, biography, a brief descr
 - [Unsplash Developer API](https://unsplash.com/developers)
 - [Quotable API](https://docs.quotable.io/docs/api)
 
+## Swagger Docs
+![Image](https://github.com/iambhavik99/QuoteCanvasGen/blob/master/screenshots/swagger-docs.png)
+
+## Screenshots
+![Image](https://github.com/iambhavik99/QuoteCanvasGen/blob/master/screenshots/image1.png)
+![Image](https://github.com/iambhavik99/QuoteCanvasGen/blob/master/screenshots/image2.png)
 
